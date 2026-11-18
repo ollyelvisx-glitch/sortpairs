@@ -1,1 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#081426"><title>OLLY MD | Pairing Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="top"><div class="brand"><div class="logo">O</div><div><h1>OLLY <span>MD</span></h1><p>WhatsApp Multi-Device Assistant</p></div></div><div id="status" class="status"><i></i> Checking…</div></header>
+    <section class="hero"><p class="eyebrow">LINK YOUR WHATSAPP</p><h2>Connect your device.<br><span>Power up OLLY MD.</span></h2><p class="intro">Choose QR scanning or an 8-digit pairing code. Keep this dashboard private.</p></section>
+    <section class="panel">
+      <label for="token">Dashboard access token</label><div class="token-row"><input id="token" type="password" placeholder="Paste DASHBOARD_TOKEN"><button id="saveToken" class="secondary">Save</button></div>
+      <div class="tabs"><button class="tab active" data-tab="qrPanel">QR Code</button><button class="tab" data-tab="pairPanel">Pairing Code</button></div>
+      <div id="qrPanel" class="tab-content"><p class="help">Open WhatsApp → Linked Devices → Link a Device, then scan this QR code.</p><div class="qr-box"><img id="qrImage" alt="WhatsApp pairing QR"><p id="qrMessage">Waiting for QR code…</p></div><button id="refreshQr" class="primary">Refresh QR</button></div>
+      <div id="pairPanel" class="tab-content hidden"><p class="help">Enter your WhatsApp number with country code, without + or spaces.</p><div class="pair-row"><input id="phone" inputmode="numeric" placeholder="2567XXXXXXXX"><button id="generatePair" class="primary">Generate code</button></div><div id="pairCode" class="pair-code">•••• ••••</div><p id="pairMessage" class="help">On WhatsApp choose “Link with phone number instead”.</p></div>
+      <div class="actions"><button id="checkStatus" class="secondary">Check connection</button><button id="restart" class="secondary">Restart bot</button></div>
+      <p id="notice" class="notice" role="status"></p>
+    </section>
+    <footer>OLLY MD · Built with Baileys · Not affiliated with WhatsApp</footer>
+  </main>
+  <script src="app.js"></script>
+</body></html>
 
