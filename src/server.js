@@ -11,8 +11,6 @@ app.use(express.json({ limit: '32kb' }));
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
 
-}
-
 app.get('/api/health', (_req, res) => res.json({ ok: true, name: process.env.BOT_NAME || 'OLLY MD', time: new Date().toISOString() }));
 app.get('/api/status', requireDashboardToken, (_req, res) => res.json({ success: true, ...getBotState() }));
 app.get('/api/qr', requireDashboardToken, async (_req, res) => {
