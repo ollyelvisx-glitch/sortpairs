@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: olly-md
+    runtime: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: DASHBOARD_TOKEN
+        generateValue: true
+      - key: DATA_DIR
+        value: /var/data
+      - key: BOT_NAME
+        value: OLLY MD
+      - key: PREFIX
+        value: .
+    disk:
+      name: olly-md-data
+      mountPath: /var/data
+      sizeGB: 1
