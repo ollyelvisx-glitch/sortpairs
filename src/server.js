@@ -10,12 +10,7 @@ app.use(cors());
 app.use(express.json({ limit: '32kb' }));
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-function requireDashboardToken(req, res, next) {
-  const expected = process.env.DASHBOARD_TOKEN;
-  if (!expected) return res.status(503).json({ success: false, error: 'Set DASHBOARD_TOKEN in the environment before using the dashboard API.' });
-  const supplied = req.get('x-dashboard-token') || req.body?.token;
-  if (supplied !== expected) return res.status(401).json({ success: false, error: 'Invalid dashboard token.' });
-  next();
+
 }
 
 app.get('/api/health', (_req, res) => res.json({ ok: true, name: process.env.BOT_NAME || 'OLLY MD', time: new Date().toISOString() }));
